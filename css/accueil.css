@@ -1,0 +1,25 @@
+.container{
+    border: 2px solid red;
+    background-color: #c5ecfc;
+}
+
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.colCategorie, .choix, .prix, .photo, .quantité {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin : 30px 0px;
+}
+
+.tableau{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin : 30px 0px;
+}

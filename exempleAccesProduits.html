@@ -1,0 +1,28 @@
+<html>
+	<head> 
+		<title>Recherche Produits par lettre</title><meta charset="UTF-8">
+	</head>
+<body>
+	Saisir le début du libellé désiré : <input type="text" id="pdt" ><br />
+	Liste des produits : <br />
+	<select id="listePdt" size="7" ></select>
+</body>
+</html> 
+	<script>
+ 		var pdt = document.getElementById("pdt");
+ 		pdt.addEventListener("keyup", recupProduit);
+ 		function recupProduit(){
+ 			fetch("getProduits?debutLib="+ pdt.value) // URL avec données
+ 			.then(response => response.json()) // réponse en JSON
+ 			.then(data => { // exploitation de la réponse
+ 				let listePdt = document.getElementById("listePdt");
+				listePdt.length = data.length;
+ 				for (let i = 0 ; i < data.length ; i++){
+					listePdt.options[i].text = data[i]["pr_libelle"];
+ 				}
+ 			})
+ 			.catch(function (error) {
+				console.log('Request failed', error);
+ 			});
+ 		}
+	</script>
